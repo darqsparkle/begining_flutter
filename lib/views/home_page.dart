@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:learnflutter/firebase_options.dart';
+import 'package:learnflutter/views/verifyemail.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,12 +12,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool _shouldNavigateToVerification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
-        backgroundColor: Colors.blue[700],
+        backgroundColor: Colors.blue[600],
       ),
       body: FutureBuilder(
         future: Firebase.initializeApp(
@@ -28,7 +31,7 @@ class _HomePageState extends State<HomePage> {
               if (user?.emailVerified ?? false) {
                 print('you are verified user');
               } else {
-                print('you need to verify first');
+                _shouldNavigateToVerification = true;
               }
               return const Text('Done');
             default:
@@ -37,5 +40,16 @@ class _HomePageState extends State<HomePage> {
         },
       ),
     );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_shouldNavigateToVerification) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const EmailVerification()),
+      );
+    }
   }
 }

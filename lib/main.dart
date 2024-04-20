@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learnflutter/views/home_page.dart';
+import 'package:learnflutter/views/login_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -9,8 +9,9 @@ void main() {
       colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       useMaterial3: true,
     ),
-    home: const HomePage(),
+    home: const LoginView(),
     debugShowCheckedModeBanner: false,
   ));
 }
+
 

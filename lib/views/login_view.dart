@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:learnflutter/firebase_options.dart';
+import 'package:learnflutter/views/register_view.dart';
+import 'package:learnflutter/views/verifyemail.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -94,10 +96,36 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 ],
               );
+
             default:
               return const Text('Loading');
           }
         },
+      ),
+      bottomNavigationBar: Row(
+        crossAxisAlignment: CrossAxisAlignment.center ,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const RegisterView(),
+                ),
+              );
+            },
+            child: const Text('Sign-up'),
+          ),
+          TextButton(onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const EmailVerification(),
+                ),
+              );
+          }, child:const Text('Verify email'))
+        ],
       ),
     );
   }
