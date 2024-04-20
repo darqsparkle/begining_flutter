@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "50713270266",
+    "project_id": "learnflutter-68b6e",
+    "storage_bucket": "learnflutter-68b6e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50713270266:android:820351561ba4066cc6f643",
+        "android_client_info": {
+          "package_name": "com.example.learnflutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYig5e78RDKsnaGAoQMohSidTCRRcjDKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
